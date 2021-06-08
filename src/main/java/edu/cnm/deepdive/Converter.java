@@ -9,10 +9,12 @@ public class Converter {
     String userInput = scan.nextLine();
     while (!userInput.isEmpty()) {
 
-        System.out.printf("Fahrenheit temperature: %,.2f degrees%nPlease type a Celsius temperature(blank to quit)", convertC2F(Double.parseDouble(userInput)));
-        userInput = scan.nextLine();
-
-
+      try {
+        System.out.printf("Fahrenheit temperature: %,.2f degrees%nPlease type a Celsius temperature(blank to quit):", convertC2F(Double.parseDouble(userInput)));
+      } catch (NumberFormatException e) {
+        System.out.printf("unable to parse \"%s\". Please try again: ", userInput);
+      }
+      userInput = scan.nextLine();
 
     }
 
