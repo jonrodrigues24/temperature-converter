@@ -27,4 +27,11 @@ class ConverterTest {
 
 
   }
+
+  @Test
+  void convertF2C() {
+
+    //TODO implement test for fahrenheit to celsius conversion
+
+  }
 }
