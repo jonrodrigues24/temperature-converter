@@ -17,16 +17,12 @@ public class Converter {
       try {
 
       if (userInputCelsius.endsWith("f")) {
-
         System.out.printf(CELSIUS_OUTPUT_FORMAT, convertF2C(Double.parseDouble(userInputCelsius)));
-
         // TODO Check last character of userInput; if f treat as fahrenheit, otherwise Celsius.
       }
 
       else {
-
         System.out.printf(FAHRENHEIT_OUTPUT_FORMAT, convertC2F(Double.parseDouble(userInputCelsius)));
-
       }
 
       } catch (NumberFormatException e) {
@@ -34,19 +30,15 @@ public class Converter {
       }
 
       userInputCelsius = scan.nextLine().trim();
-
     }
 
   }
-
-
   public static double convertC2F(double celsius) {
 
 
     return celsius * 9 / 5 + 32;
 
   }
-
   public static double convertF2C(double fahrenheit) {
 
     return 5 * (fahrenheit - 32) / 9; // implemented f2c conversion method
