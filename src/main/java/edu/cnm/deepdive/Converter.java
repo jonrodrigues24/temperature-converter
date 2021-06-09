@@ -1,4 +1,5 @@
 package edu.cnm.deepdive;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Converter {
@@ -13,15 +14,21 @@ public class Converter {
   public static void main(String[] args) {
     Scanner scan = new Scanner(System.in);
     System.out.println(INPUT_PROMPT);
-    String userInputCelsius = scan.nextLine().trim();
+    String userInputCelsius = scan.nextLine().trim().toLowerCase(Locale.ROOT);
     while (!userInputCelsius.isEmpty()) {
 
       try {
 
-      if (userInputCelsius.endsWith("f")) {
-        System.out.printf(CELSIUS_OUTPUT_FORMAT, convertF2C(Double.parseDouble(userInputCelsius)));
+      char lastChar = userInputCelsius.charAt(userInputCelsius.length() - 1);
 
-      }
+        if (lastChar == 'f') { //(userInputCelsius.endsWith("f")) {
+          //TODO Convert everything in userInput But the last character from user input
+
+          //String Celcius = userInputCelsius.
+
+          //System.out.printf(CELSIUS_OUTPUT_FORMAT, convertF2C(Double.parseDouble(userInputCelsius.)));
+
+        }
 
       else {
         System.out.printf(FAHRENHEIT_OUTPUT_FORMAT, convertC2F(Double.parseDouble(userInputCelsius)));
@@ -31,7 +38,7 @@ public class Converter {
         System.out.printf(PARSE_EXCEPTION_FORMAT, userInputCelsius);
       }
 
-      userInputCelsius = scan.nextLine().trim();
+      userInputCelsius = scan.nextLine().trim().toLowerCase();
     }
 
   }
