@@ -9,19 +9,26 @@ class ConverterTest {
 
   static double[] celsiusValues = {-40, 0, 100, 37.1};
   static double[] fahrenheitValues = {-40, 32, 212, 98.78};
-  static final double Tolerance = 0.0001;   // TODO how does this work again, does assert automatically know?
+  static final double Tolerance = 0.0001;
+
+  static final double[][] temperaturePairs = {
+      {-40, -40}, {0, 32}, {100, 212}, {37.1, 98.78}
+  };
+
 
   @Test
   void convertC2F() {
 
-    for (int i = 0; i < celsiusValues.length; i++) {
+    for (double[] testCase : temperaturePairs) {
 
-      double celsius = celsiusValues[i];
+      double celsius = testCase[0];
+      double expectedFahrenheit = testCase[1];
 
-      double expectedFahrenheit = fahrenheitValues[i];
       double actualFahrenheit = Converter.convertC2F(celsius);
 
       assertEquals(expectedFahrenheit, actualFahrenheit, Tolerance);
+
+
 
     }
 
@@ -31,11 +38,12 @@ class ConverterTest {
   @Test
   void convertF2C() {
 
-    for (int i = 0; i < fahrenheitValues.length; i++) {
+      for (double[] testCase : temperaturePairs) {
 
-      double fahrenheit = fahrenheitValues[i];
+      // double[] testCase = temperaturePairs[1];
 
-      double expectedCelsius = celsiusValues[i];
+      double fahrenheit = testCase[1];
+      double expectedCelsius = testCase[0];
       double actualCelsius = Converter.convertF2C(fahrenheit);
 
       assertEquals(expectedCelsius, actualCelsius, Tolerance);

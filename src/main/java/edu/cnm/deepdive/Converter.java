@@ -20,7 +20,7 @@ public class Converter {
 
       if (userInputCelsius.endsWith("f")) {
         System.out.printf(CELSIUS_OUTPUT_FORMAT, convertF2C(Double.parseDouble(userInputCelsius)));
-        // TODO Check last character of userInput; if f treat as fahrenheit, otherwise Celsius.
+
       }
 
       else {
